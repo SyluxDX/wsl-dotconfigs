@@ -31,6 +31,9 @@ export TIMER_THRESHOLD=0.5
 
 source $ZSH/oh-my-zsh.sh
 
+## GPG stuff
+export GPG_TTY=$(tty)
+
 # User configuration
 if [ -f $HOME/.shell_aliases ]; then
   source $HOME/.shell_aliases
