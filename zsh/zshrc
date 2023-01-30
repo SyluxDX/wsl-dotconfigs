@@ -21,7 +21,7 @@ plugins=(
     timer
 )
 
-## plugin timer configs
+### plugin timer configs
 # number of decimal places (default `1`)
 export TIMER_PRECISION=2
 # display format (default `'/%d'`)
@@ -38,3 +38,16 @@ export GPG_TTY=$(tty)
 if [ -f $HOME/.shell_aliases ]; then
   source $HOME/.shell_aliases
 fi
+
+# Add golang to PATH
+export PATH=$PATH:/usr/local/go/bin
+
+# set shell history do ignore duplicate commands
+export HISTCONTROL=ignoreboth:erasedups
+
+# lets files beginning with a . be matched without explicitly specifying the dot.
+setopt GLOB_DOTS
+
+# share commands between terminal instances or not
+unsetopt SHARE_HISTORY
+#setopt SHARE_HISTORY
