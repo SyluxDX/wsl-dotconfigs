@@ -51,3 +51,12 @@ setopt GLOB_DOTS
 # share commands between terminal instances or not
 unsetopt SHARE_HISTORY
 #setopt SHARE_HISTORY
+
+# toggle kubectl prompt function
+function kubeprompt(){
+	if [[ $KUBE_PROMPT ]]; then
+		unset KUBE_PROMPT
+	else
+		export KUBE_PROMPT=true
+	fi
+}

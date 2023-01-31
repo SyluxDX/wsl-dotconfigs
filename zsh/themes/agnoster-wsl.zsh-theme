@@ -122,10 +122,21 @@ prompt_dir() {
   prompt_segment 033 $CURRENT_FG '%~'
 }
 
+prompt_kube_context() {
+  (( $+commands[kubectl] )) || return
+  context=$(kubectl config current-context)
+  if [[ $KUBE_PROMPT && $context ]]; then
+    # helm unicode ⎈
+    prompt_segment 099 $CURRENT_FG "$context"
+  fi
+}
+
+
 ## Main prompt
 build_prompt() {
   # RETVAL=$?
   # prompt_context
+  prompt_kube_context
   prompt_dir
   prompt_git
   prompt_end
