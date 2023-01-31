@@ -1,0 +1,11 @@
+alias notes='cat ~/notes.txt'
+alias explorer='explorer.exe'
+alias notepad='notepad++.exe'
+alias nv='nvim'
+alias python='python3'
+alias pip='pip3'
+#alias sudo="sudo "
+alias kbc='kubectl -n overseer get pods | grep ContainerCreating| cut -d " " -f 1 | xargs -i kubectl -n overseer delete pod {}'
+# docker alias
+alias dcc="docker container prune -f; docker network prune -f; docker volume prune -f"
+alias dcl="docker logs -f --since 0m"
