@@ -27,5 +27,22 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " Start NERDTree and put the cursor back in the other window.
 "autocmd VimEnter * NERDTree | wincmd p
 
+" Terminal configs
+" exit insert mode
+:tnoremap <Esc> <C-\><C-n>
+":tnoremap <buffer><LeftRelease> <LeftRelease>i
+augroup neovim_terminal
+    autocmd!
+    " Enter Terminal-mode (insert) automatically
+    autocmd TermOpen * startinsert
+	" Enter Terminal-mode when changing focus to terminal
+	autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | silent! normal i | endif
+	" Remap left click when focus terminal to automatically enter terminal-mode
+	autocmd TermOpen * nnoremap <buffer><LeftRelease> <LeftRelease>i
+    " Disables number lines on terminal buffers
+    autocmd TermOpen * :set nonumber norelativenumber
+augroup END
+
+
 " onedark theme
 colo onedark
